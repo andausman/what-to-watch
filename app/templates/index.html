@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What to Watch</title>
+</head>
+<body>
+    <h1>Movie Recommendation</h1>
+
+    <form method="POST">
+        <div>
+            <label for="genres">What genres do you enjoy? (Select multiple genres)</label><br>
+            <input type="checkbox" name="genres" value="Action"> Action
+            <input type="checkbox" name="genres" value="Comedy"> Comedy
+            <input type="checkbox" name="genres" value="Romance"> Romance
+            <input type="checkbox" name="genres" value="Sci-Fi"> Sci-Fi
+            <input type="checkbox" name="genres" value="Drama"> Drama
+            <input type="checkbox" name="genres" value="Thriller"> Thriller
+        </div>
+
+        <div>
+            <label for="movie_type">What type of movie do you usually enjoy the most?</label><br>
+            <select name="movie_type">
+                <option value="Lighthearted">Lighthearted</option>
+                <option value="Dark">Dark</option>
+                <option value="Adventurous">Adventurous</option>
+                <option value="Intellectual">Intellectual</option>
+                <option value="Thrilling">Thrilling</option>
+            </select>
+        </div>
+
+        <button type="submit">Get Recommendations</button>
+    </form>
+
+    {% if recommendations %}
+        <h2>Recommended Movies:</h2>
+        <ul>
+            {% for movie in recommendations %}
+                <li>{{ movie }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
